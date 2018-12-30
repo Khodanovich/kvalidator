@@ -1,6 +1,9 @@
 import scope.ScopeValidator
 import validator.controller.ControllerValidator
 import validator.simple.SimpleValidator
+import kotlin.contracts.ExperimentalContracts
+import kotlin.contracts.InvocationKind
+import kotlin.contracts.contract
 
 //Controller Validator Api
 infix fun <V, C> ControllerValidator<V, C>.predicate(predicate: (V) -> Boolean): ControllerValidator<V, C> {
@@ -32,7 +35,11 @@ infix fun <V> SimpleValidator<V>.error(error: () -> Unit): SimpleValidator<V> {
 
 
 //Scope Validator Api
+@ExperimentalContracts
 infix fun ScopeValidator.apply(scopeValidator: ScopeValidator.() -> Unit): ScopeValidator {
+    contract {
+        callsInPlace(scopeValidator, InvocationKind.EXACTLY_ONCE)
+    }
     scopeValidator()
     return this
 }
