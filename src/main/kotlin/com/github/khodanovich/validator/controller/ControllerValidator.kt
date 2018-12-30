@@ -1,6 +1,6 @@
-package validator.controller
+package com.github.khodanovich.validator.controller
 
-import validator.Validator
+import com.github.khodanovich.validator.Validator
 
 
 class ControllerValidator<V, C> () : Validator<V> {
