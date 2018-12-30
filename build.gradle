@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'com.github.khodanovich'
-version '1.0-SNAPSHOT'
+version '0.0.2'
 
 repositories {
     mavenCentral()
@@ -14,8 +14,5 @@ dependencies {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
-compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
