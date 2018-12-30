@@ -15,14 +15,15 @@ object KValidator {
         return scope
     }
 
+    fun getScope(key: String): ScopeValidator {
+        if (scopes.contains(key).not()) throw IllegalArgumentException("")
+        return scopes[key]!!
+    }
+
     fun createScope(creator: ScopeCreator){
         creator.createScope()
     }
 
-    fun getScope(key: String): ScopeValidator {
-        if (scopes.contains(key).not()) throw IllegalArgumentException("there is not area with this key")
-        return scopes[key]!!
-    }
 }
 
 
