@@ -1,6 +1,8 @@
-import scope.ScopeValidator
-import validator.controller.ControllerValidator
-import validator.simple.SimpleValidator
+package com.github.khodanovich
+
+import com.github.khodanovich.scope.ScopeValidator
+import com.github.khodanovich.validator.controller.ControllerValidator
+import com.github.khodanovich.validator.simple.SimpleValidator
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract

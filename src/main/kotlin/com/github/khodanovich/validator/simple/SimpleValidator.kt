@@ -1,6 +1,6 @@
-package validator.simple
+package com.github.khodanovich.validator.simple
 
-import validator.Validator
+import com.github.khodanovich.validator.Validator
 
 
 class SimpleValidator<V>: Validator<V> {

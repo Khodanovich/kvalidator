@@ -1,5 +1,7 @@
-import creator.ScopeCreator
-import scope.ScopeValidator
+package com.github.khodanovich
+
+import com.github.khodanovich.creator.ScopeCreator
+import com.github.khodanovich.scope.ScopeValidator
 import java.lang.IllegalArgumentException
 
 object KValidator {

@@ -1,7 +1,7 @@
-package scope
+package com.github.khodanovich.scope
 
-import validator.Validator
-import validator.controller.ControllerValidator
+import com.github.khodanovich.validator.Validator
+import com.github.khodanovich.validator.controller.ControllerValidator
 
 class ScopeValidator private constructor(){
 
@@ -19,7 +19,7 @@ class ScopeValidator private constructor(){
             scopeValidator.addValidators(key, validators)
         }
 
-        fun add(validator: Validator<*>): ScopeValidator{
+        fun add(validator: Validator<*>): ScopeValidator {
             validators.add(validator)
             return scopeValidator
         }
@@ -33,7 +33,7 @@ class ScopeValidator private constructor(){
         }
     }
 
-    fun with(key: String, scopeValidator: ScopeValidator.Builder.() -> ScopeValidator): ScopeValidator{
+    fun with(key: String, scopeValidator: Builder.() -> ScopeValidator): ScopeValidator {
         return scopeValidator(this.Builder(key))
     }
 
