@@ -1,4 +1,4 @@
-package validator
+package com.github.khodanovich.validator
 
 interface Validator<T> {
 
