@@ -56,7 +56,7 @@ class ScopeValidator private constructor(){
     }
 
     fun checkByKey(key: String, value: Any?){
-        validators[key]?.forEach { it.check(value) }
+        validators[key]?.firstOrNull { it.check(value).not() }
     }
 
     fun checkGroup(values: HashMap<String, Any>, action: () -> Unit){
