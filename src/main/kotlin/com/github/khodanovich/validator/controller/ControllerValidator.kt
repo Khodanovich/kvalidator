@@ -3,15 +3,15 @@ package com.github.khodanovich.validator.controller
 import com.github.khodanovich.validator.Validator
 
 
-class ControllerValidator<V, C> () : Validator<V> {
+class ControllerValidator<Value, Controller> : Validator<Value> {
 
-    private var controller: C? = null
-    override var predicate: ((V)->Boolean)? = null
-    var action: ((C, V) -> Unit)? = null
-    var error: ((C)-> Unit)? = null
+    private var controller: Controller? = null
+    override var predicate: ((Value)->Boolean)? = null
+    var action: ((Controller, Value) -> Unit)? = null
+    var error: ((Controller)-> Unit)? = null
 
     override fun check(value: Any?): Boolean{
-        val checkedValue = value as V
+        val checkedValue = value as Value
         predicate?.let {
             controller?.let {
                 if (predicate!!.invoke(checkedValue)){
@@ -27,6 +27,6 @@ class ControllerValidator<V, C> () : Validator<V> {
     }
 
     fun attachController(controller: Any){
-        this.controller = controller as C
+        this.controller = controller as Controller
     }
 }
