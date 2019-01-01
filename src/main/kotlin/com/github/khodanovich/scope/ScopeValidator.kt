@@ -11,7 +11,7 @@ class ScopeValidator private constructor(){
 
     private var validators = HashMap<String, List<Validator<*>>>()
 
-    inner class Builder(key: String){
+    inner class ControllerValidatorBuilder<Value, Controller>(key: String){
         private val scopeValidator = this@ScopeValidator
         private val validators = mutableListOf<Validator<*>>()
 
@@ -19,7 +19,7 @@ class ScopeValidator private constructor(){
             scopeValidator.addValidators(key, validators)
         }
 
-        fun add(validator: Validator<*>): ScopeValidator {
+        fun add(validator: ControllerValidator<Value, Controller>): ScopeValidator {
             validators.add(validator)
             return scopeValidator
         }
@@ -33,11 +33,11 @@ class ScopeValidator private constructor(){
         }
     }
 
-    fun with(key: String, scopeValidator: Builder.() -> ScopeValidator): ScopeValidator {
-        return scopeValidator(this.Builder(key))
+    fun <Value, Controller> with(key: String, scopeValidator: ControllerValidatorBuilder<Value, Controller>.() -> ScopeValidator): ScopeValidator {
+        return scopeValidator(this.ControllerValidatorBuilder(key))
     }
 
-    fun <T> addValidators(key: String, vararg validator: Validator<T>){
+    fun <Value> addValidators(key: String, vararg validator: Validator<Value>){
         if (validators.contains(key).not()){
             validators[key] = validator.toList()
         } else {
