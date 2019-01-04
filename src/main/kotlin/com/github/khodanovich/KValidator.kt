@@ -5,7 +5,8 @@ import com.github.khodanovich.scope.ScopeValidator
 import java.lang.IllegalArgumentException
 
 object KValidator {
-    private var scopes = HashMap<String, ScopeValidator>()
+
+    private val scopes = HashMap<String, ScopeValidator>()
 
     infix fun createScope(key: String): ScopeValidator {
         val scope = ScopeValidator.newInstance()
