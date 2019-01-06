@@ -9,7 +9,7 @@ class ScopeValidator private constructor(){
         fun newInstance() = ScopeValidator()
     }
 
-    private var validators = HashMap<String, List<Validator<*>>>()
+    private val validators = HashMap<String, List<Validator<*>>>()
 
     inner class ControllerValidatorBuilder<Value, Controller>(key: String){
         private val scopeValidator = this@ScopeValidator
