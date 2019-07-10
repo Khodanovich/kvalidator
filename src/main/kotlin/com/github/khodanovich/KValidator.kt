@@ -12,8 +12,6 @@ object KValidator {
         val scope = ScopeValidator.newInstance()
         if (scopes.contains(key).not()){
             scopes[key] = scope
-        } else {
-            throw IllegalArgumentException("key \"$key\" is duplicate")
         }
         return scope
     }
